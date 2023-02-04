@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<header id="main-header">
-    <div class="header-top">
+<header th:fragment="header" id="main-header">
+    <div  class="header-top">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -13,21 +13,13 @@
                 </div>
                 <div class="col-md-5 col-md-offset-4">
                     <div class="top-user-area clearfix">
-                        <ul class="top-user-area-list list list-horizontal list-border" sec:authorize="isAuthenticated()">
-<!--                            <li class="top-user-area-avatar">-->
-<!--                                <a th:href="@{/becomeTourguide}"><span th:text="#{Become_a_Tour_Guide}"></span></a>-->
-<!--                            </li>-->
-<!--                            <li class="top-user-area-avatar" th:if="${profile.isTourguide == 1}">-->
-<!--                                <a th:href="@{/disableTourGuide}"><span th:text="#{disable_tour_guide}"></span></a>-->
-<!--                            </li>-->
-<!--                            <li><span class="text-white">Welcome, </span><a href="/profile" th:text="${profile.displayName}"></a>-->
-<!--                            </li>-->
-                            <li><a href="/logout"><span th:text="#{logout}"></span></a>
-                            </li>
+                        <ul class="top-user-area-list list list-horizontal list-border">
+                            <li sec:authorize="isAuthenticated()"><a href="/logout"><span th:text="#{logout}"></span></a></li>
+                            <li sec:authorize="isAnonymous()"><a href="/login"><span th:text="#{login}"></span></a></li>
+                            <li sec:authorize="isAnonymous()"><a href="/signup"><span th:text="#{signup}"></span></a></li>
                             <li>
                                 <select id="locales" style="background: rgb(76, 71, 71); color: white;">
                                     <option value="en" th:text="English"></option>
-                                    <option value="fr" th:text="French"></option>
                                     <option value="ar" th:text="Arabic"></option>
                                 </select>
                             </li>

@@ -6,16 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HomeController {
+public class ProfileController {
 
 
-    @RequestMapping("/")
-    public String index(){
-        return "index";
-    }
-
-    @GetMapping("fragment-expression")
-    public String fragmentExpression(){
-        return "fragment-expression";
+    @GetMapping("/login")
+    public String login(Model model){
+        return "login";
     }
 }

@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html class="full" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Alo-Travel - Login</title>
+
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GOOGLE FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600' rel='stylesheet'
+          type='text/css'>
+    <!-- /GOOGLE FONTS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mystyles.css">
+    <script src="js/modernizr.js"></script>
+
+    <link rel="stylesheet" href="css/switcher.css"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/bright-turquoise.css" title="bright-turquoise"
+          media="all"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/turkish-rose.css" title="turkish-rose"
+          media="all"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/salem.css" title="salem" media="all"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/hippie-blue.css" title="hippie-blue"
+          media="all"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/mandy.css" title="mandy" media="all"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/green-smoke.css" title="green-smoke"
+          media="all"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/horizon.css" title="horizon" media="all"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/cerise.css" title="cerise" media="all"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/brick-red.css" title="brick-red" media="all"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/de-york.css" title="de-york" media="all"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/shamrock.css" title="shamrock" media="all"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/studio.css" title="studio" media="all"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/leather.css" title="leather" media="all"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/denim.css" title="denim" media="all"/>
+    <link rel="alternate stylesheet" type="text/css" href="css/schemes/scarlet.css" title="scarlet" media="all"/>
+</head>
+
+<body class="full">
+
+<div class="global-wrap">
+
+    <div class="full-page">
+        <div class="bg-holder full">
+            <div class="bg-mask"></div>
+            <div class="bg-img" style="background-image:url(img/people_on_the_beach_1280x852.jpg);"></div>
+            <div class="bg-holder-content full text-white">
+
+                <div class="full-center">
+                    <div class="container">
+                        <div class="row row-wrap" data-gutter="60">
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="visible-lg">
+                                    <h3 class="mb15"><span th:text="#{welcome_to_alo}"></span></h3>
+                                </div>
+                                <div class="visible-lg">
+                                    <h3 class="mb15">Login</h3>
+                                </div>
+                                <form action="" method="POST">
+                                    <div class="form-group form-group-ghost form-group-icon-left"><i
+                                            class="fa fa-user input-icon input-icon-show"></i>
+                                        <label><span th:text="#{email}"></span></label>
+                                        <input class="form-control" name="username" placeholder="e.g. mail@mail.com" type="text"/>
+                                    </div>
+                                    <div class="form-group form-group-ghost form-group-icon-left"><i
+                                            class="fa fa-lock input-icon input-icon-show"></i>
+                                        <label>Password</label>
+                                        <input class="form-control" name="password" type="password" placeholder="my secret password"/>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" th:text="#{signin}"></button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#"><span th:text="#{about_us}"></span></a>
+                    </li>
+                    <li><a href="#"><span th:text="#{Privacy_Policy}"></span></a>
+                    </li>
+                    <li><a href="#"><span th:text="#{terms_of_use}"></span></a>
+                    </li>
+                    <li><a href="#"><span th:text="#{feedback}"></span></a>
+                    </li>
+                    <li><a href="#"><span th:text="#{help}"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/slimmenu.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/bootstrap-timepicker.js"></script>
+    <script src="js/nicescroll.js"></script>
+    <script src="js/dropit.js"></script>
+    <script src="js/ionrangeslider.js"></script>
+    <script src="js/icheck.js"></script>
+    <script src="js/fotorama.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="js/typeahead.js"></script>
+    <script src="js/card-payment.js"></script>
+    <script src="js/magnific.js"></script>
+    <script src="js/owl-carousel.js"></script>
+    <script src="js/fitvids.js"></script>
+    <script src="js/tweet.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/gridrotator.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/switcher.js"></script>
+</div>
+</body>
+
+</html>
+
+
+<!-- Localized -->
