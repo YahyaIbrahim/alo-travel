@@ -2,11 +2,16 @@ package com.wellware.data.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Set;
 
 
-@Data
+@Getter
+@Setter
+
 @Entity
 @Table(name = "trip")
 public class Trip extends AuditModel {

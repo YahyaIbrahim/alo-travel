@@ -3,12 +3,16 @@ package com.wellware.data.entities;
 import jakarta.persistence.*;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 
 
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "authorities")
 public class Authorities implements GrantedAuthority {
@@ -32,4 +36,5 @@ public class Authorities implements GrantedAuthority {
     public String getAuthority() {
         return authority;
     }
+
 }

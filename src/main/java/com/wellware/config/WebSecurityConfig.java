@@ -48,19 +48,6 @@ public class WebSecurityConfig {
 
     }
 
-    @Bean
-    public UserDetailsService userDetailsService(BCryptPasswordEncoder bCryptPasswordEncoder) {
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("user")
-                .password(bCryptPasswordEncoder.encode("userPass"))
-                .roles("USER")
-                .build());
-        manager.createUser(User.withUsername("admin")
-                .password(bCryptPasswordEncoder.encode("adminPass"))
-                .roles("USER", "ADMIN")
-                .build());
-        return manager;
-    }
 
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http, BCryptPasswordEncoder bCryptPasswordEncoder)
@@ -77,11 +64,23 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/actuator/**").permitAll())
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/**").anonymous())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/").anonymous())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/signup").anonymous())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/home").permitAll())
+
                 .formLogin()
-                .loginPage("/login").defaultSuccessUrl("/**").permitAll()
-                .and().logout().permitAll().and()
+                .loginPage("/login")
+                .defaultSuccessUrl("/home",true)
+                .permitAll()
+
+
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
+                .permitAll()
+
+
+                .and()
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
                 .build();
 

@@ -13,10 +13,19 @@
                 </div>
                 <div class="col-md-5 col-md-offset-4">
                     <div class="top-user-area clearfix">
-                        <ul class="top-user-area-list list list-horizontal list-border">
-                            <li sec:authorize="isAuthenticated()"><a href="/logout"><span th:text="#{logout}"></span></a></li>
-                            <li sec:authorize="isAnonymous()"><a href="/login"><span th:text="#{login}"></span></a></li>
-                            <li sec:authorize="isAnonymous()"><a href="/signup"><span th:text="#{signup}"></span></a></li>
+                        <ul class="top-user-area-list list list-horizontal list-border" sec:authorize="isAuthenticated()">
+                            <li><span class="text-white">Welcome, </span><a href="/profile" th:text="${displayName}"></a></li>
+                            <li><a href="/logout"><span th:text="#{logout}"></span></a></li>
+                            <li>
+                                <select id="locales" style="background: rgb(76, 71, 71); color: white;">
+                                    <option value="en" th:text="English"></option>
+                                    <option value="ar" th:text="Arabic"></option>
+                                </select>
+                            </li>
+                        </ul>
+                        <ul class="top-user-area-list list list-horizontal list-border" sec:authorize="isAnonymous()">
+                            <li><a href="/login"><span th:text="#{login}"></span></a></li>
+                            <li><a href="/register"><span th:text="#{signup}"></span></a></li>
                             <li>
                                 <select id="locales" style="background: rgb(76, 71, 71); color: white;">
                                     <option value="en" th:text="English"></option>

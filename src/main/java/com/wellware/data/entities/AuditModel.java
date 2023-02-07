@@ -3,6 +3,8 @@ package com.wellware.data.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -19,7 +21,8 @@ import java.util.Date;
         value = {"creationTime", "updateTime"},
         allowGetters = true
 )
-@Data
+@Getter
+@Setter
 public abstract class AuditModel implements Serializable {
 
     @Id

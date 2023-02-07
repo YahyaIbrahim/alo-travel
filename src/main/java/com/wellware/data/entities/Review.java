@@ -1,12 +1,15 @@
 package com.wellware.data.entities;
 
-import jakarta.persistence.*;
-import lombok.Data;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 
 @Entity
-@Data
+@Getter
+@Setter
 @Table(name = "reviews")
 public class Review extends AuditModel{
 

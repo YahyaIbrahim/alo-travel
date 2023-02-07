@@ -3,12 +3,17 @@ package com.wellware.data.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Collection;
 
 @Entity
 @Table(name = "extra_services")
-@Data
+@Getter
+@Setter
+
 public class ExtraService {
 
     @Id
