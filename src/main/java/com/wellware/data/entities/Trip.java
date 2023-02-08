@@ -28,4 +28,10 @@ public class Trip extends AuditModel {
     @OneToMany(mappedBy = "trip", fetch = FetchType.EAGER)
     private Set<TripExtraServices> tripExtraServices;
 
+    @OneToMany(mappedBy = "trip", fetch = FetchType.EAGER)
+    private Set<Review> reviews;
+
+    @OneToMany(mappedBy = "trip", fetch = FetchType.EAGER)
+    private Set<Booking> bookings;
+
 }

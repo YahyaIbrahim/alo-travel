@@ -15,18 +15,16 @@ import java.util.List;
 @Table(name = "bookings")
 @Getter
 @Setter
+public class Booking extends AuditModel {
 
-public class Booking {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+   @ManyToOne
+   @JoinColumn(name="profile_id", nullable=false)
+   private Profile profile;
 
-   @Column(name="user_id")
-    private Long userId;
-
-   @Column(name = "trip id")
-   private Long tripId;
+   @ManyToOne
+   @JoinColumn(name="trip_id", nullable=false)
+   private Trip trip;
 
    @Column(name ="reservation_date")
    private Date reservationDate;
@@ -40,7 +38,7 @@ public class Booking {
    @Column(name = "total_cost")
    private Float totalCost;
 
-   @OneToMany(mappedBy = "booking")
+   @OneToMany(mappedBy = "booking", fetch = FetchType.EAGER)
    private List<BookingExtraServices> extraServices;
 
    @Column(name = "trip_start")

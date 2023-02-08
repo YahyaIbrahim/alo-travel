@@ -8,7 +8,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "booking_extraservices")
+@Table(name = "booking_extra_services")
 @Getter
 @Setter
 
@@ -19,15 +19,16 @@ public class BookingExtraServices {
     private Long id;
 
 
-    @JoinColumn(name = "service_id", referencedColumnName = "id")
-    @ManyToOne
-    private ExtraService serviceId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "extra_service", referencedColumnName = "id")
+    private ExtraService extraService;
 
     @Column(name = "cost")
     private Float serviceCost;
 
-    @JoinColumn(name = "booking_id", referencedColumnName = "id")
+
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "booking_id", referencedColumnName = "id")
     private Booking booking;
 
 }

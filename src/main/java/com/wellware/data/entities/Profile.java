@@ -53,6 +53,12 @@ public class Profile extends AuditModel {
     @ManyToOne
     private Country country;
 
+    @OneToMany(mappedBy = "profile", fetch = FetchType.EAGER)
+    private Set<Review> reviews;
+
+    @OneToMany(mappedBy = "profile", fetch = FetchType.EAGER)
+    private Set<Booking> bookings;
+
     @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(
             name = "user_trips",

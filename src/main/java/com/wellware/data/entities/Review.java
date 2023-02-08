@@ -1,8 +1,6 @@
 package com.wellware.data.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,11 +11,14 @@ import lombok.Setter;
 @Table(name = "reviews")
 public class Review extends AuditModel{
 
-    @Column(name = "user_id")
-    private Long userId;
 
-    @Column(name = "trip_id")
-    private Long tripId;
+    @ManyToOne
+    @JoinColumn(name="profile_id", nullable=false)
+    private Profile profile;
+
+    @ManyToOne
+    @JoinColumn(name="trip_id", nullable=false)
+    private Trip trip;
 
     @Column(name = "review_body")
     private String reviewBody;

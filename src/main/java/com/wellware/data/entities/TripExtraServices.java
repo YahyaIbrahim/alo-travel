@@ -28,12 +28,14 @@ public class TripExtraServices{
     @Column(name = "fees")
     private Float fees;
 
-    @JoinColumn(name = "extra_service_id", referencedColumnName = "id")
+
     @ManyToOne
+    @JoinColumn(name = "extra_service_id", referencedColumnName = "id")
     private ExtraService extraService;
 
-    @JoinColumn(name = "trip_id", referencedColumnName = "id")
+
     @ManyToOne
+    @JoinColumn(name = "trip_id", referencedColumnName = "id")
     private Trip trip;
 
 }

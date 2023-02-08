@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Table(name = "extra_services")
@@ -22,11 +23,11 @@ public class ExtraService {
     @Column(name = "name")
     private String name;
 
-    @OneToMany
-    private Collection<BookingExtraServices> bookingExtraServicesCollection;
+    @OneToMany(mappedBy = "extraService", fetch = FetchType.EAGER)
+    private Set<BookingExtraServices> bookingExtraServices;
 
 
-    @OneToMany
-    private Collection<TripExtraServices> guidingServices;
+    @OneToMany(mappedBy = "extraService", fetch = FetchType.EAGER)
+    private Set<TripExtraServices> tripExtraServices;
 
 }
