@@ -10,8 +10,6 @@ public interface ProfileService {
     Profile registerNewAccount(ProfileDTO profileDTO)throws EmailExistsException;
 
 
-    void saveAuthority(Profile profile);
-
     void saveRegisteredUser(Profile user);
 
     void createVerificationToken(Profile user, String token);

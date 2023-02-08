@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 
 import java.util.HashSet;
@@ -28,8 +29,14 @@ public class Profile extends AuditModel {
     @Pattern(regexp = "[\\w\\s]+")
     private String displayName;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "profile")
-    private Set<Authorities> authorities;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "USER_ROLES",
+            joinColumns = {
+                    @JoinColumn(name = "USER_ID")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "ROLE_ID") })
+    private Set<Authorities> roles;
 
     @NotNull
     @NotEmpty
@@ -69,7 +76,7 @@ public class Profile extends AuditModel {
         return "Profile{" +
                 "enabled=" + enabled +
                 ", displayName='" + displayName + '\'' +
-                ", authorities=" + authorities +
+                ", roles=" + roles +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
@@ -77,4 +84,5 @@ public class Profile extends AuditModel {
                 ", trips=" + trips +
                 '}';
     }
+
 }

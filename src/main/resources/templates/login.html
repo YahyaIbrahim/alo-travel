@@ -78,6 +78,11 @@
                                         <label>Password</label>
                                         <input class="form-control" name="password" type="password" placeholder="my secret password"/>
                                     </div>
+                                    <div class="col-xs-12" >
+                                        <label style="color: red;" th:if="${param.error}">
+                                            Invalid UserName or Password
+                                        </label>
+                                    </div>
                                     <button type="submit" class="btn btn-primary" th:text="#{signin}"></button>
 
                                 </form>

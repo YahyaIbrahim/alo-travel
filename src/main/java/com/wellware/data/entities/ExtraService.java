@@ -22,11 +22,11 @@ public class ExtraService {
     @Column(name = "name")
     private String name;
 
-//    @OneToMany(mappedBy = "service_id")
-//    private Collection<BookingExtraServices> bookingExtraServicesCollection;
+    @OneToMany
+    private Collection<BookingExtraServices> bookingExtraServicesCollection;
 
 
-    @OneToMany(mappedBy = "extraService")
+    @OneToMany
     private Collection<TripExtraServices> guidingServices;
 
 }

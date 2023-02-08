@@ -55,20 +55,15 @@ public class ProfileServiceImpl implements ProfileService {
         user.setEmail(profileDTO.getEmail());
         user.setPhone(profileDTO.getPhone());
         country.ifPresent(user::setCountry);
+        Optional<Authorities> role = authoritiesRepository.findById(1L);
+        Set<Authorities> authorities= new HashSet<>();
+        role.ifPresent(authorities::add);
+        user.setRoles(authorities);
 
-        Profile profile =  profileRepository.save(user);
-        saveAuthority(profile);
+        return   profileRepository.save(user);
 
-        return profile;
     }
 
-    @Override
-    public void saveAuthority(Profile profile){
-        Authorities authority = new Authorities();
-        authority.setAuthority("ROLE_USER");
-        authority.setProfile(profile);
-        authoritiesRepository.save(authority);
-    }
 
     @Override
     public void saveRegisteredUser(Profile user) {

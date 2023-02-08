@@ -15,7 +15,7 @@ import org.springframework.security.core.GrantedAuthority;
 @Setter
 @Entity
 @Table(name = "authorities")
-public class Authorities implements GrantedAuthority {
+public class Authorities  {
 
     @Id
     @GeneratedValue(
@@ -27,14 +27,19 @@ public class Authorities implements GrantedAuthority {
         strategy = "native"
     )
     private Long id;
-    private String authority;
 
-    @ManyToOne
-    private Profile profile;
+    @Column
+    private String name;
+
+    @Column
+    private String description;
 
     @Override
-    public String getAuthority() {
-        return authority;
+    public String toString() {
+        return "Authorities{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
-
 }
