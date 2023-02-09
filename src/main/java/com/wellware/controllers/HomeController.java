@@ -38,6 +38,7 @@ public class HomeController {
         if(auth.getPrincipal() != "anonymousUser") {
             User userDetails = (User) auth.getPrincipal();
             Profile profile = profileRepository.findByEmail(userDetails.getUsername());
+            log.info(userDetails.toString());
             model.addAttribute("displayName", profile.getDisplayName());
         }
         return "index";

@@ -2,6 +2,7 @@ package com.wellware.DTO;
 
 
 import com.wellware.data.entities.Country;
+import com.wellware.data.entities.Profile;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
@@ -28,4 +29,13 @@ public class ProfileDTO  {
 
     private Long countryId;
 
+    public ProfileDTO(){}
+
+    public ProfileDTO(Profile profile) {
+        this.displayName = profile.getDisplayName();
+        this.email = profile.getEmail();
+        this.password = profile.getPassword();
+        this.phone = profile.getPhone();
+        this.countryId = profile.getCountry().getId();
+    }
 }

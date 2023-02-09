@@ -25,6 +25,9 @@ public class Trip extends AuditModel {
     @Column(name = "trip_cost")
     private Float tripCost;
 
+    @Column(name = "trip_place")
+    private String tripPlace;
+
     @OneToMany(mappedBy = "trip", fetch = FetchType.EAGER)
     private Set<TripExtraServices> tripExtraServices;
 

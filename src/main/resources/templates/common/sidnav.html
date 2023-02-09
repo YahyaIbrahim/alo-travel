@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="sidnav" class="col-md-3">
+    <aside class="user-profile-sidebar">
+        <div class="user-profile-avatar text-center">
+            <h5><label th:text="${profile.displayName}"></label> </h5>
+        </div>
+
+        <div class="mfp-with-anim mfp-hide mfp-dialog" id="new-file-dialog">
+            <div>
+            </div>
+        </div>
+
+        <ul class="list user-profile-nav">
+            <li><a th:href="@{/profile}"><i class="fa fa-user"></i><span th:text="#{Overview}"></span></a>
+            </li>
+            <li><a th:href="@{/trips}"><i class="fa fa-clock-o"></i><span th:text="#{Trips}"></span></a>
+            </li>
+            <li><a th:href="@{/cards}"><i class="fa fa-credit-card"></i><span th:text="#{Credit_Debit_Cards}"></span></a>
+            </li>
+            <li><a th:href="@{/calendar}"><i class="fa fa-calendar"></i>Calendar</a>
+            </li>
+            <li><a th:href="@{/reviews}"><i class="fa fa-clock-o"></i>Reviews</a>
+            </li>
+        </ul>
+    </aside>
+</div>
+
+</body>
+</html>

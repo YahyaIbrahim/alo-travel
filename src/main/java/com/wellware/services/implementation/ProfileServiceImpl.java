@@ -82,6 +82,11 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
+    public Profile getProfileByEmail(String email) {
+        return profileRepository.findByEmail(email);
+    }
+
+    @Override
     public Profile verifyProfile(String verificationToken) {
         return tokenRepository.findByToken(verificationToken).getUser();
     }

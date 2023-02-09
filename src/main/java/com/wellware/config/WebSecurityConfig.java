@@ -66,8 +66,11 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/actuator/**").permitAll())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/").anonymous())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/signup").anonymous())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/register").anonymous())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/search").anonymous())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/home").permitAll())
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/profile").authenticated())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/profile/**").authenticated())
+
 
 
                 .formLogin()
