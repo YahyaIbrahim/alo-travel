@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -68,6 +69,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/signup").anonymous())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/register").anonymous())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/search").anonymous())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/autocomplete  ").permitAll())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/home").permitAll())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/profile/**").authenticated())
 

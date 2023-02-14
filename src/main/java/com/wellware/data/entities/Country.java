@@ -5,10 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Getter
 @Setter
-
 @Entity
 @Table(name = "country")
 public class Country {
@@ -22,4 +24,7 @@ public class Country {
 
     @Column(name="country_name")
     private String countryName;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "country", cascade = CascadeType.ALL)
+    private Set<City> cities = new HashSet<>();
 }

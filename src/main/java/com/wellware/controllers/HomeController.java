@@ -1,19 +1,24 @@
 package com.wellware.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wellware.data.entities.Profile;
+import com.wellware.data.repositories.CountryRepository;
 import com.wellware.data.repositories.ProfileRepository;
+import com.wellware.services.framework.AutoCompleteService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -21,6 +26,7 @@ public class HomeController {
 
     @Autowired
     private ProfileRepository profileRepository;
+
 
     @RequestMapping("/")
     public String index(){
@@ -43,6 +49,9 @@ public class HomeController {
         }
         return "index";
     }
+
+
+
 
     @GetMapping("fragment-expression")
     public String fragmentExpression(){
